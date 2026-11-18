@@ -20,13 +20,13 @@ export function Hero() {
       {/* Composizione architettonica */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-[4%] right-[-38%] -z-10 aspect-square w-[150vw] max-w-none opacity-40 sm:right-[-22%] sm:w-[110vw] md:top-[10%] md:opacity-55 lg:top-1/2 lg:right-[-5%] lg:w-[60%] lg:max-w-[58rem] lg:-translate-y-[47%] lg:opacity-100"
+        className="pointer-events-none absolute top-[-13%] right-[-30%] -z-10 aspect-square w-[124vw] max-w-none opacity-80 sm:right-[-22%] sm:w-[110vw] md:top-[10%] md:opacity-55 lg:top-1/2 lg:right-[-5%] lg:w-[60%] lg:max-w-[58rem] lg:-translate-y-[47%] lg:opacity-100"
       >
         <HeroScene>
           <ArchitecturalArt form="residenza" id="hero" />
         </HeroScene>
       </div>
-      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgb(6_17_29/0.92)_0%,rgb(6_17_29/0.55)_42%,transparent_70%)] max-lg:bg-[linear-gradient(180deg,rgb(6_17_29/0.2)_0%,rgb(6_17_29/0.75)_55%,rgb(6_17_29/0.95)_100%)]" />
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgb(6_17_29/0.92)_0%,rgb(6_17_29/0.55)_42%,transparent_70%)] max-lg:bg-[linear-gradient(180deg,rgb(6_17_29/0)_0%,rgb(6_17_29/0.35)_30%,rgb(6_17_29/0.82)_52%,rgb(6_17_29/0.96)_100%)]" />
 
       <div className="container-site flex flex-1 flex-col justify-center pt-36 pb-14 lg:pt-40">
         <div className="max-w-[42rem]">
