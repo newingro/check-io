@@ -78,7 +78,7 @@ export function MobileMenu({ tone, pathname }: { tone: "light" | "dark"; pathnam
               {primaryCta.label}
             </Link>
             <div className="grid grid-cols-2 gap-3">
-              <a href={phoneHref} className={buttonClasses({ variant: "secondary", tone: "dark", className: "px-3 text-sm" })}>
+              <a href={phoneHref} className={buttonClasses({ variant: "secondary", tone: "dark", size: "compact" })}>
                 <Phone aria-hidden="true" className="size-4" strokeWidth={1.75} />
                 Chiama
               </a>
@@ -86,7 +86,7 @@ export function MobileMenu({ tone, pathname }: { tone: "light" | "dark"; pathnam
                 href={whatsappHref()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={buttonClasses({ variant: "secondary", tone: "dark", className: "px-3 text-sm" })}
+                className={buttonClasses({ variant: "secondary", tone: "dark", size: "compact" })}
               >
                 <MessageCircle aria-hidden="true" className="size-4" strokeWidth={1.75} />
                 WhatsApp

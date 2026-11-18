@@ -5,9 +5,19 @@ import { cn } from "@/lib/cn";
 
 type Variant = "primary" | "secondary" | "ghost";
 type Tone = "dark" | "light";
+type Size = "md" | "sm" | "compact" | "icon";
 
+// Padding, altezza e corpo del testo stanno SOLO nelle taglie: così le classi
+// passate dall'esterno non entrano mai in conflitto con quelle di base.
 const base =
-  "group/btn relative inline-flex min-h-12 items-center justify-center gap-3 overflow-hidden rounded-[3px] px-6 py-3 font-display text-[0.9375rem] font-semibold tracking-[-0.005em] transition-[color,background-color,border-color,box-shadow,transform] duration-300 ease-[var(--ease-out-expo)] active:scale-[0.985] disabled:pointer-events-none disabled:opacity-60";
+  "group/btn relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-[3px] py-3 font-display font-semibold tracking-[-0.005em] transition-[color,background-color,border-color,box-shadow,transform] duration-300 ease-[var(--ease-out-expo)] active:scale-[0.985] disabled:pointer-events-none disabled:opacity-60 [&_svg]:shrink-0";
+
+const sizes: Record<Size, string> = {
+  md: "min-h-12 px-6 text-[0.9375rem]",
+  sm: "min-h-11 px-5 text-[0.875rem]",
+  compact: "min-h-12 px-4 text-sm",
+  icon: "min-h-12 w-14 px-0",
+};
 
 const variants: Record<Variant, Record<Tone, string>> = {
   primary: {
@@ -19,17 +29,19 @@ const variants: Record<Variant, Record<Tone, string>> = {
     light: "border border-navy-900/20 text-navy-900 hover:border-navy-900/60 hover:bg-navy-900/[0.03]",
   },
   ghost: {
-    dark: "px-0 text-white hover:text-turq-300 min-h-11",
-    light: "px-0 text-navy-900 hover:text-turq-700 min-h-11",
+    dark: "text-white hover:text-turq-300",
+    light: "text-navy-900 hover:text-turq-700",
   },
 };
 
 export function buttonClasses({
   variant = "primary",
   tone = "dark",
+  size,
   className,
-}: { variant?: Variant; tone?: Tone; className?: string } = {}) {
-  return cn(base, variants[variant][tone], className);
+}: { variant?: Variant; tone?: Tone; size?: Size; className?: string } = {}) {
+  const sizeClasses = variant === "ghost" && !size ? "min-h-11 px-0 text-[0.9375rem]" : sizes[size ?? "md"];
+  return cn(base, sizeClasses, variants[variant][tone], className);
 }
 
 function Arrow() {
@@ -45,6 +57,7 @@ function Arrow() {
 interface ButtonLinkProps extends Omit<ComponentProps<typeof Link>, "className"> {
   variant?: Variant;
   tone?: Tone;
+  size?: Size;
   className?: string;
   arrow?: boolean;
   icon?: ReactNode;
@@ -54,6 +67,7 @@ interface ButtonLinkProps extends Omit<ComponentProps<typeof Link>, "className">
 export function ButtonLink({
   variant = "primary",
   tone = "dark",
+  size,
   className,
   arrow = true,
   icon,
@@ -62,7 +76,7 @@ export function ButtonLink({
   href,
   ...props
 }: ButtonLinkProps) {
-  const classes = buttonClasses({ variant, tone, className });
+  const classes = buttonClasses({ variant, tone, size, className });
   const content = (
     <>
       {icon}

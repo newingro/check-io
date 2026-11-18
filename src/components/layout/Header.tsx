@@ -78,7 +78,8 @@ export function Header() {
             className={buttonClasses({
               variant: "primary",
               tone: scrolled ? "light" : "dark",
-              className: "min-h-11 px-5 text-[0.875rem] max-sm:hidden",
+              size: "sm",
+              className: "max-sm:hidden",
             })}
           >
             <span className="xl:hidden">Consulenza</span>

@@ -34,7 +34,7 @@ export function MobileCtaBar() {
       inert={!visible}
     >
       <div className="mx-auto flex max-w-lg gap-3">
-        <Link href={primaryCta.href} className={buttonClasses({ variant: "primary", tone: "light", className: "min-h-12 flex-1 px-4 text-[0.9375rem]" })}>
+        <Link href={primaryCta.href} className={buttonClasses({ variant: "primary", tone: "light", className: "flex-1" })}>
           {primaryCta.label}
         </Link>
         <a
@@ -42,7 +42,7 @@ export function MobileCtaBar() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Scrivici su WhatsApp (si apre in una nuova scheda)"
-          className={buttonClasses({ variant: "secondary", tone: "light", className: "min-h-12 w-14 shrink-0 px-0" })}
+          className={buttonClasses({ variant: "secondary", tone: "light", size: "icon", className: "shrink-0" })}
         >
           <MessageCircle aria-hidden="true" className="size-5" strokeWidth={1.75} />
         </a>
